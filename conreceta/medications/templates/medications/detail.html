@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre si el medicamento {{ medication.name }} se vende con receta médica en las farmacias de Chile.">
+    <title>¿{{ medication.name.upper|title }} con receta?</title>
+</head>
+<body>
+    <h1>{{ medication.name|capfirst }}</h1>
+    El medicamento {{ medication.name|title }} <b>se vende {% if medication.selling_condition == "Directa" %}sin receta{% else %}con {{medication.selling_condition|lower}}{% endif %}</b>.
+</body>
+</html>
