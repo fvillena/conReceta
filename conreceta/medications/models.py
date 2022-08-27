@@ -9,4 +9,4 @@ class Medication(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return "/medications/%i/" % self.concept_id
+        return "/%i/" % self.concept_id
