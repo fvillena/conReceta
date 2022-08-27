@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Descubre si el medicamento {{ medication.name }} se vende con receta médica en las farmacias de Chile.">
+    <meta name="description"
+        content="Descubre si el medicamento {{ medication.name }} se vende con receta médica en las farmacias de Chile.">
     <title>¿{{ medication.name.upper|title }} con receta médica?</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
+
 <body>
-    <h1>{{ medication.name|capfirst }}</h1>
-    El medicamento {{ medication.name|title }} <b>se vende {% if medication.selling_condition == "Directa" %}sin receta médica{% else %}con {{medication.selling_condition|lower}}{% endif %}</b>.
-    <h2>Revisa más medicamentos</h2>
-    <ul>
-    {% for medication in random_medications %}
-        <li><a href="/{{medication.concept_id}}/">{{ medication.name }}</a></li>
-    {% endfor %}
-    </ul>
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">¿Con receta?</span>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <h1>{{ medication.name|capfirst }}</h1>
+        <p>El medicamento {{ medication.name|title }} <b>se vende {% if medication.selling_condition == "Directa" %}sin
+                receta médica{% else %}con {{medication.selling_condition|lower}}{% endif %}</b>.</p>
+        <h2>Revisa más medicamentos</h2>
+        <ul>
+            {% for medication in random_medications %}
+            <li><a href="/{{medication.concept_id}}/">{{ medication.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
