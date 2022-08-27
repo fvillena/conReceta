@@ -26,7 +26,7 @@ class MedicationSitemap(Sitemap):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('medications/', include('medications.urls')),
-    path('medications/sitemap.xml', sitemap, {'sitemaps': {'medications': MedicationSitemap}},
+    path('', include('medications.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': {'medications': MedicationSitemap}},
      name='django.contrib.sitemaps.views.sitemap')
 ]
