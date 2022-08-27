@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>{{ medication.name|capfirst }}</h1>
-    El medicamento {{ medication.name|title }} <b>se vende {% if medication.selling_condition == "Directa" %}sin receta{% else %}con {{medication.selling_condition|lower}}{% endif %}</b>.
+    El medicamento {{ medication.name|title }} <b>se vende {% if medication.selling_condition == "Directa" %}sin receta médica{% else %}con {{medication.selling_condition|lower}}{% endif %}</b>.
     <h2>Revisa más medicamentos</h2>
     <ul>
     {% for medication in random_medications %}
