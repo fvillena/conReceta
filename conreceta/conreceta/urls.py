@@ -20,6 +20,7 @@ from django.contrib.sitemaps import Sitemap
 from medications.models import Medication
 
 class MedicationSitemap(Sitemap):
+    protocol = 'https'
 
     def items(self):
         return Medication.objects.all()
