@@ -1,1 +1,33 @@
-{{ medications }}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Descubre si un se vende con receta médica en las farmacias de Chile.">
+    <title>¿Con receta médica?</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body>
+    {% include "medications/header.html" %} 
+    <div class="d-flex align-items-center justify-content-center flex-column gap-46 vh-100">
+        <div class="text-center">
+            <h1>¿Con Receta?</h1>
+            <p>Descubre si un medicamento se vende con receta médica en las farmacias chilenas</p>
+        </div>
+        <hr>
+            <form class="d-flex" role="search" action="/search" method="get">
+                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar" name="q">
+                <button class="btn btn-primary" type="submit">Buscar</button>
+            </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
