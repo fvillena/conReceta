@@ -19,5 +19,5 @@ def detail(request, concept_id):
     return render(request, 'medications/detail.html', {'medication': medication, 'random_medications':random_medications})
 def search_results(request):
     q = request.GET.get('q', '')
-    results = Medication.objects.filter(name__icontains=q)[:100]
+    results = Medication.objects.filter(name__icontains=q.strip())[:100]
     return render(request, 'medications/search_results.html', {'results': results,'q':q})
