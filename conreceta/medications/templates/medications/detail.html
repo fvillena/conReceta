@@ -19,11 +19,10 @@
         <h2><small class="text-muted">{{medication.clinical_medication.name}}</small></h2>
         <p>El medicamento {{ medication.name|title }} <b>se vende {% if medication.clinical_medication.selling_condition == "Directa" %}sin
                 receta médica{% else %}con {{medication.clinical_medication.selling_condition|lower}}{% endif %}</b>.</p>
-        <h2>Revisa más medicamentos</h2>
+        <h2>Medicamentos similares</h2>
         <ul>
-            {% for medication in random_medications %}
-            <li><a href="/{{medication.concept_id}}/">{{ medication.name }}</a><br>
-                {{ medication.clinical_medication.name }}</li>
+            {% for medication in siblings %}
+            <li><a href="/{{medication.concept_id}}/">{{ medication.name }}</a></li>
             {% endfor %}
         </ul>
     </div>
