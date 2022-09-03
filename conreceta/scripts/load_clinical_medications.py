@@ -11,10 +11,7 @@ def run():
         for row in reader:
             name = row["Término Preferido"]
             concept_id = row["ConceptID"]
-            basic_medication_data = row["ConceptID Fármacos - Medicamento Básico ¦ Preferido Fármacos - Medicamento Básico ¦ Estado"]
-            if len(basic_medication_data.split("¦")) != 3:
-                continue
-            _, _, state = basic_medication_data.split("¦")
+            state = row["Estado"]
             if state.strip() != "Vigente":
                 continue
             medication = ClinicalMedication(

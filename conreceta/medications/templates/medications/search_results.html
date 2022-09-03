@@ -18,7 +18,8 @@
         <h1>Resultados para <i>{{q}}</i>:</h1>
         <ul>
             {% for result in results %}
-            <li><a href="/{{result.concept_id}}/">{{ result.name }}</a></li>
+            <li><a href="/{{result.concept_id}}/">{{ result.name }}</a><br>
+            {{ result.clinical_medication.name }}</li>
             {% endfor %}
         </ul>
     </div>
