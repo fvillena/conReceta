@@ -17,13 +17,13 @@ from django.contrib import admin
 from django.urls import include, path
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import Sitemap
-from medications.models import Medication
+from medications.models import ClinicalMedication
 
 class MedicationSitemap(Sitemap):
     protocol = 'https'
 
     def items(self):
-        return Medication.objects.all()
+        return ClinicalMedication.objects.all()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
