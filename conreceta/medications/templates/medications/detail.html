@@ -17,7 +17,7 @@
     <div class="container-fluid">
         <h1>{{ medication.name|capfirst }}</h1>
         <h2><b><small class="text-muted">{{medication.clinical_medication.basic_medication.name}}</small></b></h2>
-        <h3><small class="text-muted">{{medication.clinical_medication.name}}</small></h3>
+        <p class="lead">{{medication.clinical_medication.name}}</p>
         <p>El medicamento {{ medication.name|title }} <b>se vende {% if medication.clinical_medication.selling_condition == "Directa" %}sin
                 receta médica{% else %}con {{medication.clinical_medication.selling_condition|lower}}{% endif %}</b>.</p>
         <h2>Medicamentos similares</h2>
