@@ -19,7 +19,7 @@
         <ul>
             {% for result in results %}
             <li><a href="/{{result.concept_id}}/">{{ result.name }}</a><br>
-            {{ result.clinical_medication.basic_medication.name }}</li>
+            {{ result.basic_medication_name }}</li>
             {% endfor %}
         </ul>
     </div>

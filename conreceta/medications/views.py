@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from django.db.models import Q
+from algoliasearch_django import raw_search
 
 from .models import CommercialProduct
 
@@ -19,8 +20,6 @@ def detail(request, concept_id):
     return render(request, 'medications/detail.html', {'medication': medication, 'siblings':siblings})
 def search_results(request):
     q = request.GET.get('q', '')
-    results = CommercialProduct.objects.filter(
-        Q(name__icontains=q.strip())
-        | Q(clinical_medication__name__icontains=q.strip())
-        )[:100]
-    return render(request, 'medications/search_results.html', {'results': results,'q':q})
+    params = {  }
+    results = raw_search(CommercialProduct, q, params)
+    return render(request, 'medications/search_results.html', {'results': results["hits"],'q':q})

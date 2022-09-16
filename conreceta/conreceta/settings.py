@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+ALGOLIA = {
+    'APPLICATION_ID': 'WQZ9ZC0041',
+    'API_KEY': '0a60f36a1cbbe405e0faad6c70baee88'
+}
 
 # Application definition
 
@@ -40,6 +44,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'medications.apps.MedicationsConfig',
     'django.contrib.sitemaps',
+    'algoliasearch_django',
 ]
 
 MIDDLEWARE = [

@@ -21,6 +21,12 @@ class CommercialProduct(models.Model):
     clinical_medication = models.ForeignKey(ClinicalMedication, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
 
+    def clinical_medication_name(self):
+        return self.clinical_medication.name
+    
+    def basic_medication_name(self):
+        return self.clinical_medication.basic_medication.name
+
     def get_absolute_url(self):
         return "/%i/" % self.concept_id
     
